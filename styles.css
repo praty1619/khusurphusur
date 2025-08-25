@@ -1,0 +1,773 @@
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    height: 100%;
+    font-family: 'Arial', sans-serif;
+    scroll-behavior: smooth;
+    background-color: #ffcc83; /* Ensure background color stays the same */
+}
+
+/* ? */
+
+/* First Section (Logo and Tagline) */
+.container {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    position: relative;
+    z-index: 1;
+}
+
+.logo {
+    width: 80%;
+    max-width: 450px;
+    height: auto;
+}
+
+.typewriter {
+    font-size: 1.5rem;
+    margin-top: 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    overflow-wrap: break-word;
+    padding-right: 5px;
+    display: inline-block;
+    position: relative;
+}
+
+.typewriter::after {
+    content: "";
+    border-right: 2px solid black; /* The cursor */
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    animation: blink-caret 0.75s step-end infinite;
+}
+
+/* Typewriter Animation */
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+@keyframes blink-caret {
+    from, to { border-color: transparent; }
+    50% { border-color: black; }
+}
+
+/* =============================
+   Canvas-style Cards Section
+   ============================= */
+
+#details-section {
+  padding: 80px 20px;
+  text-align: center;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#details-section .card {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 1rem;
+  padding: 30px;
+  margin: 20px;
+  max-width: 800px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  flex: 1 1 300px;
+  max-width: 350px;
+}
+
+#details-section .card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 6px 30px rgba(0, 0, 0, 0.5);
+}
+
+#details-section .card h2 {
+  font-size: 1.8rem;
+  color: #ffcc83;
+  margin-bottom: 15px;
+}
+
+#details-section .card p {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 10px;
+  text-align: left;
+  color: #f0f0f0;
+}
+
+#details-section .fee {
+  margin-top: 15px;
+  font-weight: bold;
+  color: #ffd28f;
+  font-size: 1.1rem;
+  text-align: right;
+}
+
+#details-section .workshop-title {
+  text-align: center;
+  width: 100%;
+}
+
+#details-section .cards-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.cards-container {
+      display: flex;
+      flex-direction: row;
+      gap: 2rem;
+      justify-content: center;
+      align-items: flex-start;
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      width: 100%;
+      padding-bottom: 2rem;
+    }
+
+    .card {
+      min-width: 320px;
+      width: 320px;
+      height: 420px;
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(12px);
+      border-radius: 20px;
+      overflow: hidden;
+      color: #fff;
+      padding: 1.5rem;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      animation: fadeInUp 1s ease forwards;
+      opacity: 0;
+      position: relative;
+    }
+
+    .card h2 {
+      color: #ff9ecb;
+      font-size: 1.4rem;
+      margin-bottom: 1rem;
+    }
+
+    .card-content {
+      flex: 1;
+      overflow-y: auto;
+      padding-right: 6px;
+      margin-bottom: 1rem;
+    }
+
+    .card-content p {
+      font-size: 0.9rem;
+      line-height: 1.5;
+      color: #ccc;
+      margin-bottom: 1rem;
+    }
+
+    .fee {
+        position: sticky;
+        bottom: 0;
+        margin-top: 1rem;
+        background: linear-gradient(90deg, #ff007a, #ff8a05);
+        padding: 0.75rem 1rem;
+        font-weight: bold;
+        color: #fff;
+        text-align: center;
+        border-top: 1px solid rgba(255, 255, 255, 0.2);
+        box-shadow: 0 -2px 8px rgba(255, 0, 122, 0.25);
+        letter-spacing: 0.5px;
+        text-shadow: 0 0 4px rgba(255, 255, 255, 0.2);
+        font-size: 1rem;
+        border-radius: 10px;
+        backdrop-filter: blur(8px);
+
+        /* Center it visually inside card */
+        width: fit-content;
+        margin-left: auto;
+        margin-right: auto;
+}
+
+    .card::before {
+      content: '';
+      position: absolute;
+      top: -2px;
+      left: -2px;
+      right: -2px;
+      bottom: -2px;
+      background: linear-gradient(90deg, #ff89a4, #ff75b5, #ff89a4);
+      background-size: 600% 100%;
+      z-index: 0;
+      border-radius: 22px;
+      animation: beam 6s linear infinite;
+      opacity: 0.5;
+      filter: blur(2px);
+    }
+
+    .card::after {
+      content: '';
+      position: absolute;
+      top: 2px;
+      left: 2px;
+      right: 2px;
+      bottom: 2px;
+      background: rgba(0, 0, 0, 0.6);
+      border-radius: 18px;
+      z-index: 1;
+    }
+
+    .card > * {
+      position: relative;
+      z-index: 2;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        transform: translateY(20px);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    @keyframes fadeInDown {
+      from {
+        transform: translateY(-20px);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    @keyframes beam {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+.workshop-section-bg {
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.85), rgba(20, 20, 20, 0.85)),
+              url('man-meditating-front-mountain-landscape.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 80px 20px;
+  color: white;
+}
+
+#headline {
+  font-size: clamp(1.8rem, 4vw, 3rem); /* Scales from 1.8rem on small to 3rem on large screens */
+  font-weight: 700;
+  color: #ffcc83;
+  text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.6);
+  margin-bottom: 2rem;
+  animation: fadeInDown 1s ease forwards;
+  text-align: center;
+}
+
+
+.card-content::-webkit-scrollbar {
+  width: 6px;
+}
+
+.card-content::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: 10px;
+}
+
+.card-content::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #ff9ecb, #ff75b5);
+  border-radius: 10px;
+  box-shadow: inset 0 0 6px rgba(255, 255, 255, 0.2);
+}
+
+.card-content::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #ff75b5, #ff007a);
+}
+
+
+    /* Contact styling section*/
+.contact {
+    font-size: 1.1rem;
+    margin-top: 20px;
+    opacity: 0; /* Start as invisible */
+    transform: translateY(20px);
+    transition: opacity 1s ease, transform 1s ease;
+}
+
+.workshop-details.active .contact {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.contact a {
+    color: #ffcc83; /* Keep gold color for link */
+    text-decoration: none; /* No underline */
+    font-weight: bold; /* Keep bold */
+    border-bottom: 2px solid transparent;
+    transition: border-bottom 0.3s;
+}
+
+.contact a:hover {
+    border-bottom: 2px solid #ffcc83; /* Gold underline on hover */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        padding: 10px;
+    }
+
+    .workshop-icons {
+        flex-direction: column;
+    }
+    
+    .icon-item {
+        margin: 10px 0; /* Margin adjustments for smaller screens */
+    }
+    
+    .workshop-title {
+        font-size: 2rem;
+    }
+
+    .workshop-desc {
+        font-size: 1rem;
+        padding: 0 10px; /* Add some padding for better readability */
+    }
+
+    .contact {
+        font-size: 1rem;
+    }
+
+    .logo {
+        width: 70%; /* Adjust size for mobile */
+        max-width: 300px; /* Maximum width for larger screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .workshop-title {
+        font-size: 1.5rem;
+    }
+
+    .workshop-desc {
+        font-size: 0.9rem;
+        padding: 0 5px;
+    }
+
+    .contact {
+        font-size: 0.9rem;
+    }
+
+    .container {
+        padding: 0 10px; /* Add some padding to prevent text from hitting screen edges */
+    }
+
+    .typewriter {
+        font-size: 0.8rem; /* Smaller font size for very small screens */
+        text-align: center; /* Ensure it's centered */
+    }
+}
+
+/* Personal Section: Background with Information */
+.personal-section {
+    background: url('DSC_1052.JPG') no-repeat right center;
+    background-size: cover;
+    background-attachment: fixed;
+    min-height: 100vh;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding-left: 50px;
+    color: #fff;
+    position: relative;
+}
+
+/* Dark overlay on background image */
+.personal-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6); /* Dark overlay */
+    z-index: 1;
+}
+
+/* Dark overlay card style */
+.info {
+    max-width: 600px;
+    background: rgba(0, 0, 0, 0.75); /* Dark overlay for the card */
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.7); /* Enhanced shadow for depth */
+    backdrop-filter: blur(10px); /* Glassmorphism effect */
+    position: relative;
+    z-index: 2; /* Ensure card stays on top */
+    color: #fff; /* Text color */
+    animation: fadeIn 1.2s ease-in-out; /* Subtle fade-in animation */
+}
+
+/* Keyframe for the fade-in effect */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.info h1 {
+    font-size: 2.5rem;
+    color: #ffcc83; /* Golden color for headings */
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8); /* Soft text shadow */
+    letter-spacing: 1.5px;
+}
+
+.info ul {
+    list-style-type: disc;
+    padding-left: 20px;
+    font-size: 1.2rem;
+    line-height: 1.8;
+}
+
+.info li {
+    margin-bottom: 10px;
+}
+
+.info p {
+    font-size: 1.2 rem;
+    line-height: 1.5;
+    color: #e0e0e0;
+    margin-bottom: 20px;
+}
+
+/* Highlight important information */
+.info p .highlight {
+    color: #ffcc83; /* Use highlight color */
+    font-weight: bold;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); /* Subtle shadow for highlights */
+}
+
+/* Highlight box style for special text blocks */
+.info .highlight-box {
+    background-color: rgba(255, 204, 131, 0.2); /* Transparent box with highlight color */
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+/* Hover effect for interactive feel */
+.info:hover {
+    transform: translateY(-5px);
+    transition: transform 0.3s ease-in-out;
+}
+
+
+
+/* Mobile view adjustments for personal section */
+@media (max-width: 768px) {
+    .personal-section {
+        background: url('DSC_1053.jpg') no-repeat center center;
+        background-size: cover;
+        position: relative;
+        padding: 40px 20px;
+        display: flex;
+        justify-content: center;
+        align-items: flex-end; /* Keep content at the bottom */
+        text-align: center;
+        min-height: 100vh;
+    }
+
+    /* Dark overlay to darken image */
+    .personal-section::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.35); /* Keep image visible */
+        z-index: 1;
+    }
+
+    /* Overlay card style */
+    .info {
+        position: relative;
+        z-index: 2; /* Ensure content stays on top */
+        color: #fff;
+        padding: 20px;
+        background: rgba(0, 0, 0, 0.6); /* Dark overlay */
+        text-align: left;
+        box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.4); /* Soft shadow */
+        border-radius: 12px;
+        max-width: 90%; /* Shrink card to 90% width */
+        overflow-y: auto; /* Scroll content if it's too long */
+        max-height: 50vh; /* Limit card height to 50% of viewport */
+        font-family: 'Roboto', sans-serif; /* Modern font */
+    }
+
+    .info h1 {
+        font-size: 1.6rem;
+        margin-bottom: 10px;
+        font-weight: bold;
+        letter-spacing: 1px;
+        color: #ffcc83;
+        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+    }
+
+    .info p {
+        font-size: 1rem;
+        line-height: 1.6; /* Increase line height for readability */
+        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+        margin-bottom: 10px;
+    }
+
+    /* Highlight important information */
+    .info p .highlight {
+        color: #ffcc83; /* Use highlight color */
+        font-weight: bold;
+    }
+
+    /* Additional spacing for the last paragraph */
+    .info p:last-child {
+        margin-bottom: 0;
+    }
+
+    .info::-webkit-scrollbar {
+  width: 5px;
+}
+
+.info::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: 10px;
+}
+
+.info::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #ffcc83, #ff9ecb);
+  border-radius: 10px;
+  box-shadow: inset 0 0 4px rgba(255, 255, 255, 0.3);
+}
+
+.info::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #ff9ecb, #ff007a);
+}
+
+}
+
+/* Footer section */
+.footer-section {
+    background-color: #1b1b1b;
+    color: #fff;
+    padding: 50px 0;
+    text-align: center;
+    position: relative;
+}
+
+.footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.footer-about {
+    flex-basis: 30%;
+    margin-bottom: 30px;
+}
+
+.footer-about h2 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    color: #ffcc83;
+}
+
+.footer-about p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #ccc;
+}
+
+.footer-socials {
+    flex-basis: 30%;
+    margin-bottom: 30px;
+}
+
+.footer-socials a {
+    display: block;
+    color: #ffcc83;
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    text-decoration: none;
+}
+
+.footer-socials a:hover {
+    color: #fff;
+}
+
+.footer-contact {
+    flex-basis: 30%;
+    margin-bottom: 30px;
+}
+
+.footer-contact p {
+    font-size: 1rem;
+    margin: 10px 0;
+    color: #ccc;
+}
+
+.footer-contact i {
+    margin-right: 10px;
+    color: #ffcc83;
+}
+
+.footer-bottom {
+    margin-top: 30px;
+    border-top: 1px solid #333;
+    padding-top: 20px;
+    font-size: 0.9rem;
+    color: #999;
+}
+
+/* Responsive footer layout */
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .footer-about, .footer-socials, .footer-contact {
+        flex-basis: 100%;
+    }
+}
+
+
+/* Floating Navbar Styles */
+.floating-navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent background */
+    padding: 15px 20px;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Add some shadow for effect */
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.nav-links {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links li {
+    display: inline;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: #f39c12; /* Highlighted color on hover */
+}
+
+/* Hamburger button styles */
+.hamburger {
+    display: none;
+    cursor: pointer;
+}
+
+.hamburger i {
+    font-size: 24px;
+    color: white;
+}
+
+/* Media query for mobile view */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none; /* Hide nav links by default on mobile */
+        position: absolute;
+        top: 60px; /* Below the navbar */
+        left: 0;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.9);
+        flex-direction: column;
+        text-align: center;
+        padding: 10px 0;
+    }
+
+    .nav-links.active {
+        display: flex; /* Show the links when active (after clicking the hamburger) */
+    }
+
+    .nav-links li {
+        margin: 10px 0;
+    }
+
+    .hamburger {
+        display: block; /* Show the hamburger icon */
+    }
+
+    .nav-links a {
+        font-size: 18px;
+        color: white;
+    }
+}
+
+/* Optional floating tab style for larger screens */
+@media (min-width: 769px) {
+    .floating-navbar {
+        justify-content: center;
+    }
+}
