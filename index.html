@@ -40,7 +40,7 @@
     </div>
 
 
-    <!-- Third Section: Personal Information with Background Image -->
+    <!-- Second Section: Personal Information with Background Image -->
 <div class="personal-section" id="personal-section">
     <div class="info">
         <div class="overlay-card">
@@ -57,7 +57,7 @@
 </div>
 
 
-    <!-- Second Section: Workshop Description-->
+    <!-- Third Section: Workshop Description-->
 
     <section class="workshop-section-bg" id="overlay">
         <div class="workshop-details">
@@ -100,21 +100,57 @@
     </section>
 
 
-    <!-- Third Section: Workshop Gallery-->
+<!-- Fourth Section: Workshop Gallery-->
+<div class="masonary-grid">
+    <h1>खुसुर - फुसुर Gallery</h1>
 
-    <div  class="masonary-grid">
-        <h1>खुसुर - फुसुर Gallery</h1>
-        <div class="grid" id="grid">
-            <div class="grid-sizer"></div>
-            <div class="gutter-sizer"></div>
-
-            <!-- Images -->
-            <div class="grid-item"><img src="khusur phusur image/image1.webp" alt="Image 1" loading="lazy"></div>
-            <div class="grid-item"><img src="khusur phusur image/image2.webp" alt="Image 2" loading="lazy"></div>
-            <div class="grid-item"><img src="khusur phusur image/image3.webp" alt="Image 3" loading="lazy"></div>
-            
-        </div>
+    <!-- Highlight Grid (Landing Page Preview) -->
+    <div class="grid" id="highlight-grid">
+        <div class="grid-item"><img src="khusur phusur image/image1.webp" alt="Image 1"></div>
+        <div class="grid-item"><img src="khusur phusur image/image8.webp" alt="Image 8"></div>
+        <div class="grid-item"><img src="khusur phusur image/image3.webp" alt="Image 3"></div>
     </div>
+
+    <!-- Show More Button -->
+    <button id="show-more-btn">+ Show More</button>
+</div>
+
+<!-- Full Gallery Modal -->
+<div id="fullGallery">
+    <span class="close">&times;</span>
+    <div class="full-grid">
+        <!-- All 22 images go here -->
+        <div class="grid-item"><img src="khusur phusur image/image1.webp" alt="Image 1"></div>
+        <div class="grid-item"><img src="khusur phusur image/image2.webp" alt="Image 2"></div>
+        <div class="grid-item"><img src="khusur phusur image/image3.webp" alt="Image 3"></div>
+        <div class="grid-item"><img src="khusur phusur image/image4.webp" alt="Image 4"></div>
+        <div class="grid-item"><img src="khusur phusur image/image5.webp" alt="Image 5"></div>
+        <div class="grid-item"><img src="khusur phusur image/image6.webp" alt="Image 6"></div>
+        <div class="grid-item"><img src="khusur phusur image/image7.webp" alt="Image 7"></div>
+        <div class="grid-item"><img src="khusur phusur image/image8.webp" alt="Image 8"></div>
+        <div class="grid-item"><img src="khusur phusur image/image9.webp" alt="Image 9"></div>
+        <div class="grid-item"><img src="khusur phusur image/image10.webp" alt="Image 10"></div>
+        <div class="grid-item"><img src="khusur phusur image/image11.webp" alt="Image 11"></div>
+        <div class="grid-item"><img src="khusur phusur image/image12.webp" alt="Image 12"></div>
+        <div class="grid-item"><img src="khusur phusur image/image13.webp" alt="Image 13"></div>
+        <div class="grid-item"><img src="khusur phusur image/image14.webp" alt="Image 14"></div>
+        <div class="grid-item"><img src="khusur phusur image/image15.webp" alt="Image 15"></div>
+        <div class="grid-item"><img src="khusur phusur image/image16.webp" alt="Image 16"></div>
+        <div class="grid-item"><img src="khusur phusur image/image17.webp" alt="Image 17"></div>
+        <div class="grid-item"><img src="khusur phusur image/image18.webp" alt="Image 18"></div>
+        <div class="grid-item"><img src="khusur phusur image/image19.webp" alt="Image 19"></div>
+        <div class="grid-item"><img src="khusur phusur image/image20.webp" alt="Image 20"></div>
+        <div class="grid-item"><img src="khusur phusur image/image21.webp" alt="Image 21"></div>
+        <div class="grid-item"><img src="khusur phusur image/image22.webp" alt="Image 22"></div>
+    </div>
+</div>
+
+<!-- Lightbox Popup (for both highlight & full gallery) -->
+<div id="lightbox">
+    <span class="close">&times;</span>
+    <img class="lightbox-content" id="lightbox-img">
+    <div id="caption"></div>
+</div>
 
 <footer class="footer-section" id="footer-section">
     <div class="footer-container">
@@ -159,6 +195,7 @@
         }, index * 300);
       });
     });
+
     </script>
 </body>
 </html>

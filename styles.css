@@ -1,3 +1,12 @@
+/* 🔧 Global fix for unwanted horizontal scroll */
+html,
+body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    /* prevent sideways scroll */
+}
+
 /* Basic Reset */
 * {
     margin: 0;
@@ -731,6 +740,232 @@ body, html {
 .hamburger i {
     font-size: 24px;
     color: white;
+}
+
+
+/* Gallery Section Wrapper */
+.masonary-grid {
+    padding: 50px 20px;
+    background: linear-gradient(135deg, #f6d365 0%, #fda085 100%);
+    position: relative;
+    max-width: 100vw; /* stop overflow */
+    box-sizing: border-box;
+    /* light background to pop */
+}
+
+/* .masonary-grid {
+    padding: 50px 10px;
+    
+    position: relative;
+} */
+
+/* 🎯 Style only the h1 inside masonary-grid */
+.masonary-grid>h1 {
+    text-align: center;
+    font-size: clamp(1.8rem, 4vw, 3rem);
+    font-weight: 700;
+    margin-bottom: 30px;
+    color: #222;
+    position: relative;
+}
+
+.masonary-grid>h1::after {
+    content: "";
+    display: block;
+    width: 80px;
+    height: 4px;
+    /* highlight color */
+    margin: 10px auto 0;
+    border-radius: 2px;
+}
+
+/* Grid Layout */
+.grid {
+    column-count: 3;
+    column-gap: 15px;
+    max-width: 100%;
+}
+
+.grid-item {
+    break-inside: avoid;
+    margin-bottom: 15px;
+    overflow: hidden;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.grid-item:hover {
+    transform: scale(1.03);
+}
+
+/* Images */
+.grid-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+    border-radius: 12px;
+    max-width: 100%;
+}
+
+/* Fade in CSS Query */
+.grid-item {
+    opacity: 1;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.grid-item.fade-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .grid {
+        column-count: 2;
+    }
+}
+
+@media (max-width: 600px) {
+    .grid {
+        column-count: 1;
+    }
+}
+
+/* Lightbox overlay */
+#lightbox {
+    display: none;
+    /* hidden by default */
+    position: fixed;
+    z-index: 99999;
+    padding-top: 60px;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100%;
+    overflow: auto;
+    background: rgba(0, 0, 0, 0.9);
+}
+
+/* Lightbox image */
+#lightbox-img {
+    display: block;
+    margin: auto;
+    max-width: 90%;
+    max-height: 80vh;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    animation: zoomIn 0.3s ease;
+}
+
+/* Zoom animation */
+@keyframes zoomIn {
+    from {
+        transform: scale(0.7);
+    }
+
+    to {
+        transform: scale(1);
+    }
+}
+
+/* Caption */
+#caption {
+    margin: 15px auto;
+    text-align: center;
+    color: #ccc;
+    font-size: 16px;
+    max-width: 90%;
+}
+
+/* Close button */
+#lightbox .close {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    color: #fff;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+
+/* New Addition to Css for Grid  */
+
+/* Show More Button */
+#show-more-btn {
+    display: block;
+    margin: 20px auto 0;
+    padding: 12px 20px;
+    background: #161616;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: 0.3s;
+}
+
+#show-more-btn:hover {
+    background: #bfbfbf;
+    color: #161616;
+    font-size: 1rem;
+}
+
+/* Full gallery modal */
+#fullGallery {
+    display: none;
+    /* hidden by default */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100%;
+    background: rgba(22, 22, 22, 0.98);
+    overflow-y: auto;
+    z-index: 9998;
+    /* below lightbox */
+    padding: 40px 20px;
+}
+
+#fullGallery .close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 40px;
+    cursor: pointer;
+    color: #333;
+}
+
+#fullGallery .full-grid {
+    column-count: 4;
+    column-gap: 15px;
+}
+
+#fullGallery .grid-item {
+    break-inside: avoid;
+    margin-bottom: 15px;
+}
+
+#fullGallery img {
+    width: 100%;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+@media(max-width:1024px) {
+    #fullGallery .full-grid {
+        column-count: 2;
+    }
+}
+
+@media(max-width:600px) {
+    #fullGallery .full-grid {
+        column-count: 1;
+    }
 }
 
 /* Media query for mobile view */

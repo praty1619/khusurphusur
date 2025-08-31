@@ -43,4 +43,49 @@ hamburger.addEventListener("click", () => {
 window.addEventListener('scroll', checkScroll);
 
 
+document.addEventListener("DOMContentLoaded", () => {
+    const showMoreBtn = document.getElementById("show-more-btn");
+    const moreGallery = document.getElementById("fullGallery");
+    const closeGalleryBtn = document.querySelector(".close");
+
+    // Show hidden gallery
+    showMoreBtn.addEventListener("click", () => {
+        moreGallery.style.display = "block";
+        document.body.style.overflow = "hidden"; // stop background scroll
+    });
+
+    // Close hidden gallery
+    closeGalleryBtn.addEventListener("click", () => {
+        moreGallery.style.display = "none";
+        document.body.style.overflow = "auto";
+    });
+
+    // Lightbox (apply to ALL images)
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImg = document.getElementById("lightbox-img");
+    const captionText = document.getElementById("caption");
+    const closeBtn = document.querySelector("#lightbox .close");
+
+    document.querySelectorAll(".grid-item img").forEach(img => {
+        img.addEventListener("click", () => {
+            lightbox.style.display = "block";
+            lightboxImg.src = img.src;
+            captionText.innerHTML = img.alt;
+        });
+    });
+
+    closeBtn.addEventListener("click", () => {
+        lightbox.style.display = "none";
+    });
+
+    lightbox.addEventListener("click", (e) => {
+        if (e.target === lightbox) {
+            lightbox.style.display = "none";
+        }
+    });
+});
+
+
+
+
 
