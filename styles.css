@@ -281,7 +281,7 @@ body, html {
 
 .workshop-section-bg {
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0.85), rgba(20, 20, 20, 0.85)),
-              url('man-meditating-front-mountain-landscape.jpg');
+              url('man-meditating-front-mountain-landscape.webp');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -406,7 +406,7 @@ body, html {
 
 /* Personal Section: Background with Information */
 .personal-section {
-    background: url('DSC_1052.JPG') no-repeat right center;
+    background: url('DSC_1052.webp') no-repeat right center;
     background-size: cover;
     background-attachment: fixed;
     min-height: 100vh;
@@ -508,7 +508,7 @@ body, html {
 /* Mobile view adjustments for personal section */
 @media (max-width: 768px) {
     .personal-section {
-        background: url('DSC_1053.jpg') no-repeat center center;
+        background: url('DSC_1053.webp') no-repeat center center;
         background-size: cover;
         position: relative;
         padding: 40px 20px;
@@ -1004,5 +1004,285 @@ body, html {
 @media (min-width: 769px) {
     .floating-navbar {
         justify-content: center;
+    }
+}
+
+
+/* Section styling */
+.video-reviews {
+    padding: 60px 20px;
+    background: #fffaf4;
+    text-align: center;
+}
+
+.video-reviews h1 {
+    font-size: clamp(1.8rem, 4vw, 3rem);
+    margin-bottom: 30px;
+    font-weight: 700;
+    color: #222;
+}
+
+/* Desktop: Grid */
+.video-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+/* Video Card (thumbnails) */
+.video-card {
+    position: relative;
+    cursor: pointer;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease;
+}
+
+.video-card:hover {
+    transform: scale(1.03);
+}
+
+.video-card video {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 12px;
+    object-fit: cover;
+}
+
+.play-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 3rem;
+    color: white;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 50%;
+    padding: 15px 20px;
+}
+
+/* Lightbox */
+#videoLightbox {
+    display: none;
+    /* hidden initially */
+    position: fixed;
+    z-index: 99999;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+#videoLightbox video {
+    max-width: 90%;
+    max-height: 80vh;
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+#videoLightbox .close {
+    position: absolute;
+    top: 20px;
+    right: 40px;
+    font-size: 40px;
+    color: #fff;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* Section styling (soft pastel gradient) */
+.video-reviews {
+    padding: 70px 20px;
+    background: linear-gradient(135deg, #f9e4ff 0%, #ffe9d6 100%);
+    text-align: center;
+}
+
+.video-reviews h1 {
+    font-size: clamp(1.8rem, 4vw, 3rem);
+    margin-bottom: 32px;
+    font-weight: 700;
+    color: #222;
+    position: relative;
+}
+
+.video-reviews h1::after {
+    content: "";
+    display: block;
+    width: 80px;
+    height: 4px;
+    background: #1b1b1b;
+    margin: 10px auto 0;
+    border-radius: 2px;
+}
+
+/* Desktop: Grid */
+.video-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    align-items: start;
+}
+
+/* Video Card (glassmorphism) */
+.video-card {
+    position: relative;
+    cursor: pointer;
+    border-radius: 12px;
+    overflow: hidden;
+    background: rgba(27, 27, 27, 0.55);
+    /* glass base */
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    box-shadow: 0 8px 30px rgba(10, 10, 10, 0.12);
+    transition: transform 0.28s cubic-bezier(.2, .9, .3, 1), box-shadow 0.28s;
+}
+
+.video-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 40px rgba(10, 10, 10, 0.2);
+}
+
+/* video content wrapper keeps top radius while info bar occupies bottom */
+.video-card .video-content {
+    overflow: hidden;
+    border-radius: 12px 12px 0 0;
+}
+
+/* Thumbnail / preview video */
+.video-card video {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+    border-radius: 12px 12px 0 0;
+    /* top corners rounded */
+}
+
+/* Play icon */
+.play-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2.6rem;
+    color: #fff;
+    background: rgba(0, 0, 0, 0.45);
+    border-radius: 50%;
+    padding: 12px 14px;
+    transition: transform 0.28s ease, background 0.28s ease, box-shadow 0.28s ease;
+    z-index: 5;
+    pointer-events: none;
+    /* clicks pass to card */
+}
+
+.video-card:hover .play-icon {
+    transform: translate(-50%, -50%) scale(1.08);
+    background: rgba(27, 27, 27, 0.9);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
+}
+
+/* Info bar (dark, #1b1b1b) */
+.video-info {
+    padding: 14px 12px;
+    background: #1b1b1b;
+    text-align: center;
+    border-radius: 0 0 12px 12px;
+}
+
+.video-info h3 {
+    margin: 0;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 0.2px;
+}
+
+/* Lightbox (unchanged, but keep here for completeness) */
+#videoLightbox {
+    display: none;
+    position: fixed;
+    z-index: 99999;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.95);
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+#videoLightbox video {
+    max-width: 92%;
+    max-height: 82vh;
+    border-radius: 12px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.6);
+    animation: zoomIn 0.28s ease;
+}
+
+#videoLightbox .close {
+    position: absolute;
+    top: 18px;
+    right: 28px;
+    font-size: 40px;
+    color: #fff;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* Zoom animation */
+@keyframes zoomIn {
+    from {
+        transform: scale(0.85);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Mobile: Horizontal slider (keeps your existing behavior + hidden scrollbar) */
+@media (max-width: 768px) {
+    .video-grid {
+        display: flex;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        gap: 15px;
+        padding: 10px;
+        scrollbar-width: none;
+        /* Firefox */
+        -ms-overflow-style: none;
+        /* IE/Edge */
+    }
+
+    .video-grid::-webkit-scrollbar {
+        display: none;
+    }
+
+    /* Chrome/Safari */
+
+    .video-card {
+        flex: 0 0 80%;
+        scroll-snap-align: center;
+        transition: transform 0.28s ease;
+    }
+
+    /* Side cards slightly smaller for focus effect */
+    .video-card:not(:focus-within) {
+        transform: scale(0.94);
+        opacity: 0.92;
+    }
+
+    .video-card video {
+        border-radius: 12px;
     }
 }

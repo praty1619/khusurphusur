@@ -24,6 +24,7 @@
                     <li><a href="#details-section" class="nav-link">Workshop Details</a></li>
                     <li><a href="#personal-section" class="nav-link">My Details</a></li>
                     <li><a href="#masonary-grid" class="nav-link">Gallery</a></li>
+                    <li><a href="#video" class="nav-link">Video Reviews</a></li>
                     <li><a href="#footer-section" class="nav-link">Contact</a></li>
                 </ul>
             </div>
@@ -153,6 +154,51 @@
     <div id="caption"></div>
 </div>
 
+<section class="video-reviews">
+    <h1>Video Reviews</h1>
+    <div class="video-grid">
+        <div class="video-card" data-video="videos/review1.mp4">
+            <div class="video-content">
+                <video src="videos/review1.mp4" muted playsinline preload="metadata"></video>
+                <span class="play-icon">▶</span>
+            </div>
+            <div class="video-info">
+                <h3>Student Feedback</h3>
+            </div>
+        </div>
+        
+        <div class="video-card" data-video="videos/review2.mp4">
+            <div class="video-content">
+                <video src="videos/review2.mp4" muted playsinline preload="metadata"></video>
+                <span class="play-icon">▶</span>
+            </div>
+            <div class="video-info">
+                <h3>Student Feedback</h3>
+            </div>
+        </div>
+        
+        <div class="video-card" data-video="videos/review3.mp4">
+            <div class="video-content">
+                <video src="videos/review3.mp4" muted playsinline preload="metadata"></video>
+                <span class="play-icon">▶</span>
+            </div>
+            <div class="video-info">
+                <h3>Student Feedback</h3>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Lightbox -->
+<div id="videoLightbox">
+    <span class="close">&times;</span>
+    <video id="lightboxVideo" controls autoplay muted playsinline>
+        <source src="" type="video/mp4">
+        Your browser does not support HTML5 video.
+    </video>
+</div>
+
+
 <footer class="footer-section" id="footer-section">
     <div class="footer-container">
         <div class="footer-about">
@@ -177,17 +223,17 @@
     </div>
 </footer>
 
-    <script src="script.js">
-   document.querySelectorAll('.nav-link').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        window.scrollTo({
-            top: target.offsetTop - 60, // Adjust this offset according to your navbar height
-            behavior: 'smooth'
+<script src="script.js">
+    document.querySelectorAll('.nav-link').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            window.scrollTo({
+                top: target.offsetTop - 60, // Adjust this offset according to your navbar height
+                behavior: 'smooth'
+            });
         });
     });
-});
 
     document.addEventListener("DOMContentLoaded", () => {
       document.querySelectorAll(".card").forEach((card, index) => {
@@ -197,6 +243,6 @@
       });
     });
 
-    </script>
+</script>
 </body>
 </html>

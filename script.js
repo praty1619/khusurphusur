@@ -86,6 +86,50 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
+document.addEventListener("DOMContentLoaded", () => {
+    const videoCards = document.querySelectorAll(".video-card");
+    const lightbox = document.getElementById("videoLightbox");
+    const lightboxVideo = document.getElementById("lightboxVideo");
+    const videoSource = lightboxVideo.querySelector("source");
+    const closeBtn = document.querySelector("#videoLightbox .close");
+
+    // Open lightbox with video
+    videoCards.forEach(card => {
+        card.addEventListener("click", () => {
+            const videoSrc = card.getAttribute("data-video");
+
+            // update <source> inside <video>
+            videoSource.src = videoSrc;
+            lightboxVideo.load();      // reload the video
+            lightboxVideo.play();      // start playback
+            lightbox.style.display = "flex";
+        });
+    });
+
+    // Close with button
+    closeBtn.addEventListener("click", () => {
+        lightbox.style.display = "none";
+        lightboxVideo.pause();
+        videoSource.src = "";      
+        lightboxVideo.load();
+    });
+
+    // Close by clicking outside video
+    lightbox.addEventListener("click", e => {
+        if (e.target === lightbox) {
+            lightbox.style.display = "none";
+            lightboxVideo.pause();
+            videoSource.src = "";
+            lightboxVideo.load();
+        }
+    });
+});
+
+
+
+
+
+
 
 
 
